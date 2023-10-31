@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create event</title>
+        <link rel="stylesheet" href="newpost.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="VClogo.png">  
+    </head>
+    <body>
+      <div class="row">
+    <div class="col-md-12">
+      <form action="Create_post.php" method="post">
+        <h1> Hire Volunteers </h1>
+        
+        <fieldset>
+          
+          <legend><span class="number">1</span> Event Info</legend>
+        
+          <label for="Event_name">Event Name:</label>
+          <input type="text" id="name"  name="Event_name">
+        
+          <label for="Event_location">Event Location: </label>
+          <input type="text" id="Location" name="Event_location">
+       
+          <label for="Event_date">Event Date:</label>
+          <input type="date" id="date" name="Event_date">
+        
+           
+         <label for="Event_description">Event Description:</label>
+         <textarea id="desc" name="Event_description"  rows="4" cols="50"></textarea>
+          
+         <label for="Event_image">Event Image:</label>
+        <input type="file" id="Image" name="Image" accept="image/*">
+          
+        </fieldset>
+        <button type="submit">Sign Up</button>
+        
+       </form>
+        </div>
+      </div>
+      
+    </body>
+</html>
