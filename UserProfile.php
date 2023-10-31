@@ -35,7 +35,7 @@
     <div class="card-deck row">
         <?php
         include_once("connect.php");
-        $sql = "SELECT id, Event_name, Event_location, Event_date, Event_organizer_name, Event_description, Volunteers_required, Volunteers_ready, Event_image FROM org_event_post";
+        $sql = "SELECT id, Event_name, Event_location, Event_date, Event_organizer_id, Event_description, Volunteers_required, Volunteers_ready, Event_image FROM org_event_post";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
         while( $record = mysqli_fetch_assoc($resultset) ) {
         ?>
@@ -52,21 +52,37 @@
                 <div class="desc"> <a target="_blank" href="<?php echo $record['Event_location']; ?>"></a></div>		
                 <div class="desc"><?php echo $record['Event_description']; ?></div>	    
                 <div class="desc">Date: <?php echo $record['Event_date']; ?></div>    
-                <div class="desc">Organized by: <?php echo $record['Event_organizer_name']; ?></div>	  				
+                <div class="desc">Organized by: <?php echo $record['Event_organizer_id']; ?></div>	  				
             </div>
-            <form class="" method="post">
-                <button type=submit class="bg-primary text-white border-0 p-2 rounded-2">I'm interested</button>
-                <?php
-                if(isset($_POST))
-                {
-                    $curr=$record['Event_name'];
-                    $user="arbitrary user";
-                    $sql="Insert into interested_users (Event_name,user_name) values ('$curr','$user')";
-                    mysqli_query($conn, $sql);
+           
+    <form class="" method="post">
+        <?php
+        $curr = $record['id'];
+        $user = 'arbitary user'; 
+        echo $curr;
+        $sql = "SELECT * FROM interested_users WHERE Event_id =$curr AND user_ids='$user';";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            
+             ?>
+            <button type="button"  disabled>I'm interested</button>
+            <?php
+        } else {
+           
+            ?>
+            <button type="submit" name="expressInterest" >I'm interested</button>
+            <?php
+
+            // Handle the form submission
+            if (isset($_POST['expressInterest'])) {
+                $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
+                mysqli_query($conn, $sql);
                 }
-                ?>
-            </form>
-        </div>
+        }
+        ?>
+    </form>
+       </div>
         
         <?php } 
         ?>

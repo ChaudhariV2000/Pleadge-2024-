@@ -32,10 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Last_name = trim($_POST['Last_name']);
     }
     $conn = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+         echo $Name;
     
-    
-        $sql = 'INSERT into volunteer_login (Name, Last_name, Password, Email) Values("$Name", "$Last_name", "$password", "$email")';
-        if (mysqli_query($conn, $sql)) {
+       $sql = "INSERT into volunteer_login (Name, Last_name, Password, Email) Values('$Name','$Last_name','$password','$email')";
+        if (mysqli_query($conn, $sql))
+         {
             echo "New record created successfully";
             session_start();
             $_SESSION['loggedin'] = true;

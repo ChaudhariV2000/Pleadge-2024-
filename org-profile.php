@@ -61,7 +61,7 @@
     <h1>Your earlier events</h1>
         <?php
         include_once("connect.php");
-        $sql = "SELECT id, Event_name, Event_location, Event_date, Event_organizer_name, Event_description, Volunteers_required, Volunteers_ready, Event_image FROM org_event_post";
+        $sql = "SELECT id, Event_name, Event_location, Event_date, Event_organizer_id, Event_description, Volunteers_required, Volunteers_ready, Event_image FROM org_event_post";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
         while( $record = mysqli_fetch_assoc($resultset) ) {
         ?>
@@ -78,19 +78,19 @@
                 <div class="desc"> <a target="_blank" href="<?php echo $record['Event_location']; ?>"></a></div>		
                 <div class="desc"><?php echo $record['Event_description']; ?></div>	    
                 <div class="desc">Date: <?php echo $record['Event_date']; ?></div>    
-                <div class="desc">Organized by: <?php echo $record['Event_organizer_name']; ?></div>	  				
+                <div class="desc">Organized by: <?php echo $record['Event_organizer_id']; ?></div>	  				
             </div>
             <div>
               Intrested users:
               <ul>
               <?php
               include_once("connect.php");
-              $curr=$record['Event_name'];
-              $sql = "SELECT user_name FROM interested_users where Event_name='Donation Drive for v';";
+              $curr=$record['Event_id'];
+              $sql = "SELECT user_ids FROM interested_users;"; //where Event_id='Donation Drive for v';";
               $resultset2 = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
               while( $record2 = mysqli_fetch_assoc($resultset2) ) {
               ?>
-              <li><?php echo $record2['user_name']; ?></li>
+              <li><?php echo $record2['user_ids']; ?></li>
                 <?php } ?>
               </ul>
             </div>
