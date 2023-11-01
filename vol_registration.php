@@ -51,10 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_query($conn, $sql))
          {
             echo "New record created successfully";
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['name'] = $_POST['Name'];
-            $_SESSION['email'] = $rows['Email'];
+            // session_start();
+            // $_SESSION['loggedin'] = true;
+            // $_SESSION['name'] = $_POST['Name'];
+            // $_SESSION['email'] = $rows['Email'];
+            setcookie("user_id",$userid,time()+86400);
             header('location: UserProfile.php');
           } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

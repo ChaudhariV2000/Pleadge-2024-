@@ -58,8 +58,9 @@
     <form class="" method="post">
         <?php
         $curr = $record['id'];
-        $user = 'arbitary user'; 
-        echo $curr;
+
+        $user =$_COOKIE['user_id']; 
+        echo $user;
         $sql = "SELECT * FROM interested_users WHERE Event_id =$curr AND user_ids='$user';";
         $result = mysqli_query($conn, $sql);
 

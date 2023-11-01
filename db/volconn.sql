@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `interested_users` (
   `Event_id` int(11) NOT NULL,
-  `user_ids` int(11) NOT NULL
+  `user_ids` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
