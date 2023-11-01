@@ -1,10 +1,18 @@
 <?php
-session_start();
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: org-profile.php");
-    exit;
-}
 
+// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+//     header("location: org-profile.php");
+//     exit;
+// }
+
+                                        if(isset($_COOKIE['user_id']))
+                                        {
+                                        header('location: UserProfile.php');
+                                        }
+                                        else if(isset($_COOKIE['org_id']))
+                                        {
+                                        header("location: org-profile.php");
+                                        }
 require 'db_config.php';
 $field=$_POST['optradio'];
 $password = $UserID = '';
