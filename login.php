@@ -75,12 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($result) === 1){
         if ($password === $rows['Password']){
             echo "Login Successful!";
-            // session_start();
-            // $_SESSION['loggedin'] = true;
-            // $_SESSION['id'] = $rows['Id'];
-            // $_SESSION['email'] = $rows['Email'];
+            
             $id=$rows['Id'];    
-            setcookie("vol_id",$id,time()+8400);
+            setcookie("user_id",$id,time()+8400);
             header('location: UserProfile.php');
         }
         else{

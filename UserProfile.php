@@ -80,7 +80,7 @@ if(!isset($_COOKIE["user_id"]))
                     </div>
                 </div>
 
-                <form class="" method="post">
+                <form action="intrested_user.php" method="post">
                     
         <input type="hidden" name="event_id" value="<?php echo $record['id']; ?>">
         <?php
@@ -93,11 +93,13 @@ if(!isset($_COOKIE["user_id"]))
 
         if (mysqli_num_rows($result) > 0) {
             ?>
+                    <input type="hidden" name="curr" value="<?php echo $record['id']; ?>">
+                    <!-- <input type="hidden" name="" value="<?php echo $record['id']; ?>"> -->
             <button type="button" disabled>I'm interested</button>
             <?php
         } else {
             ?>
-            <button type="submit" name="expressInterest" onclick="insert()">I'm interested</button>
+            <button type="submit" name="expressInterest" >I'm interested</button>
             <?php
         }
         ?>
@@ -115,13 +117,3 @@ if(!isset($_COOKIE["user_id"]))
     </div>
     <
 </body>
-<script>
-
-    function insert()
-    {echo "demo";echo "demo";echo "demo";echo "demo";
-         $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
-            mysqli_query($conn, $sql);
-
-    }
-    </script>
-    </html>

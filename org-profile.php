@@ -86,7 +86,7 @@
               <?php
               include_once("connect.php");
               $curr=$record['id'];
-              $sql = "SELECT user_ids FROM interested_users;"; //where Event_id='Donation Drive for v';";
+              $sql = "SELECT user_ids FROM interested_users WHERE Event_id='$curr';"; //where Event_id='Donation Drive for v';";
               $resultset2 = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 
               while( $record2 = mysqli_fetch_assoc($resultset2) ) 
