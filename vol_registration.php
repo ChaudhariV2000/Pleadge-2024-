@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // $_SESSION['loggedin'] = true;
             // $_SESSION['name'] = $_POST['Name'];
             // $_SESSION['email'] = $rows['Email'];
-            setcookie("user_id",$userid,time()+86400);
+            setcookie("user_id",$userid,time()+86400);//cookies set
             header('location: UserProfile.php');
           } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
