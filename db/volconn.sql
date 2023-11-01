@@ -74,7 +74,7 @@ CREATE TABLE `org_login` (
 --
 
 CREATE TABLE `volunteer_login` (
-  `Id` varchar(20) NOT NULL  PRIMARY K,
+  `Id` varchar(20) NOT NULL  PRIMARY KEY,
   `first_name` varchar(255) NOT NULL,
   `Last_name` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
@@ -100,8 +100,6 @@ ALTER TABLE `org_login`
 --
 -- Indexes for table `volunteer_login`
 --
-ALTER TABLE `volunteer_login`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
