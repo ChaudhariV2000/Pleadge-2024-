@@ -51,7 +51,7 @@
     <!--REGISTER MODAL-->
 </head>
 
-<body data-spy="scroll" style="width: 100vw;margin: 0%;padding: 0%;">
+<body data-spy="scroll" style="margin: 0%;padding: 0%;">
     <!-- Navbar -->
     <header id="header " class="header">
         <nav id="main-nav" class="main-nav navbar navbar-expand-md bg-primary ">
@@ -68,6 +68,8 @@
                 </button><!--//nav-toggle-->
 
                 <div class="navbar-collapse collapse" id="navbar-collapse">
+
+
                     <ul id="nav-menu" class="nav navbar-nav ms-md-auto text-white p-1">
                         <li class="nav-item sr-only"><a class="nav-link scrollto text-white" href="#promo">Home</a></li>
                         <li class="nav-item"><a class="nav-link scrollto text-white" href="#about">Register</a></li>
@@ -88,14 +90,22 @@
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel-1">Login</h5>
+                                    <div class="modal-header d-flex justify-content-between">
+                                        <h3 class="form-text" id="exampleModalLabel-1">Login</h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body-1 p-5">
-                                        <form method="post" action="/wallconn.php">
+                                        <form method="post" action="">
+                                            
+                                            <div class="d-flex justify-content-around">
+                                                <small class="form-text  ">Volunteer</small>
+                                                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="volunteer" checked>
+                                                <small class="form-text  ">Organizer</small>
+                                                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="organizer" checked>
+                                            </div>
+                                            <br>
 
                                             <div class="form-group pt-2">
                                                 <h4 id="emailHelp" class="form-text text-muted ">User Name</h4>
@@ -126,7 +136,7 @@
     </header><!--Navbar-->
 
     <!-- *****Headline***** -->
-    <section id="promo" class="promo section offset-header parallax d-flex" style="width: 100vw;">
+    <section id="promo" class="promo section offset-header parallax d-flex" style="width: 100%;">
         <div class="container text-left  vh-100 d-flex">
             <div class="title mx-5 row align-items-center h-100 text-white">
                 <div class="" style="text-shadow: 5px 5px 8px #000000;">
