@@ -97,20 +97,21 @@ if(!isset($_COOKIE["user_id"]))
                     } else {
 
                         ?>
-                        <button type="submit" name="expressInterest">I'm interested</button>
+                        <button type="submit" id = "1" name="expressInterest">I'm interested</button>
                         <?php
 
                         // Handle the form submission
-                        if (isset($_POST['expressInterest'])) {
-                            $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
-                            mysqli_query($conn, $sql);
-                        }
+                       
                     }
                     ?>
                 </form>
             </div>
 
         <?php }
+         if (isset($_POST['expressInterest'])) {
+            $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
+            mysqli_query($conn, $sql);
+        }
         ?>
 
     </div>

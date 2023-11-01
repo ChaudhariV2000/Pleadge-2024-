@@ -4,6 +4,7 @@
 //     header("location: org-profile.php");
 //     exit;
 // }
+//ocean
 
                                         if(isset($_COOKIE['user_id']))
                                         {
