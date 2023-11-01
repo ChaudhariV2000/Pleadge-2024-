@@ -99,7 +99,8 @@
                   while($result_name=mysqli_fetch_assoc($result))
                   {
               ?>
-              <li><?php echo $result_name['first_name']." ".$result_name['last_name']; ?></li>
+              <li><?php echo $result_name['first_name']." ".$result_name['last_name']; ?></li>/
+              <!-- names of intrested user -->
                 <?php
                   }
                 }
