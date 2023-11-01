@@ -81,38 +81,47 @@ if(!isset($_COOKIE["user_id"]))
                 </div>
 
                 <form class="" method="post">
-                    <?php
-                    $curr = $record['id'];
+                    
+        <input type="hidden" name="event_id" value="<?php echo $record['id']; ?>">
+        <?php
+        $curr = $record['id'];
 
-                    $user = $_COOKIE['user_id'];
-                    echo $user;
-                    $sql = "SELECT * FROM interested_users WHERE Event_id =$curr AND user_ids='$user';";
-                    $result = mysqli_query($conn, $sql);
+        $user = $_COOKIE['user_id'];
+        // Check if the user has already expressed interest in this event
+        $sql = "SELECT * FROM interested_users WHERE Event_id = $curr AND user_ids = '$user'";
+        $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-
-                        ?>
-                        <button type="button" disabled>I'm interested</button>
-                        <?php
-                    } else {
-
-                        ?>
-                        <button type="submit" id = "1" name="expressInterest">I'm interested</button>
-                        <?php
-
-                        // Handle the form submission
-                       
-                    }
-                    ?>
-                </form>
+        if (mysqli_num_rows($result) > 0) {
+            ?>
+            <button type="button" disabled>I'm interested</button>
+            <?php
+        } else {
+            ?>
+            <button type="submit" name="expressInterest" onclick="insert()">I'm interested</button>
+            <?php
+        }
+        ?>
+    </form>
+               
             </div>
 
         <?php }
-         if (isset($_POST['expressInterest'])) {
-            $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
-            mysqli_query($conn, $sql);
-        }
+        //  if (isset($_POST['expressInterest'])) {
+        //     $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
+        //     mysqli_query($conn, $sql);
+        // }
         ?>
 
     </div>
+    <
 </body>
+<script>
+
+    function insert()
+    {echo "demo";echo "demo";echo "demo";echo "demo";
+         $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
+            mysqli_query($conn, $sql);
+
+    }
+    </script>
+    </html>
