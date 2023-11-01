@@ -79,11 +79,13 @@
 
                             Login
                         </button>
-                        <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
                         <li><a class="dropdown-item" href="vol_login.php">User</a></li>
                         <li><a class="dropdown-item" href="#">Organization</a></li>
                       </ul>
                     -->
+
 
                         <!-- Modal For login-->
                         <div class="modal fade p-5" id="exampleModal-1" tabindex="-1" role="dialog"
@@ -97,31 +99,45 @@
                                         </button>
                                     </div>
                                     <div class="modal-body-1 p-5">
-                                        <form method="post" action="">
-                                            
+
+                                        <form method="post" action="login.php">
+
                                             <div class="d-flex justify-content-around">
                                                 <div>
                                                     <small class="form-text  ">Volunteer</small>
-                                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="volunteer" checked>
+                                                    <input type="radio" class="form-check-input" id="radio1"
+                                                        name="optradio" value="volunteer" checked>
                                                 </div>
                                                 <div>
                                                     <small class="form-text  ">Organizer</small>
-                                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="organizer" checked>
+                                                    <input type="radio" class="form-check-input" id="radio1"
+                                                        name="optradio" value="organizer" checked>
                                                 </div>
                                             </div>
                                             <br>
 
                                             <div class="form-group pt-2">
                                                 <h4 id="emailHelp" class="form-text text-muted ">User Name</h4>
+<<<<<<< HEAD
                                                 <input type="text" class="form-control  " id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" placeholder="Enter UserName" required>
                                                 
+=======
+                                                <input type="password" class="form-control  " id="exampleInputEmail1"
+                                                    name="userid" aria-describedby="emailHelp"
+                                                    placeholder="Enter UserName">
+
+>>>>>>> 7d35853dd77e3b707a0d3ec575bc8bccb01a4dec
                                             </div>
 
                                             <div class="form-group pt-2">
                                                 <h4 id="emailHelp" class="form-text text-muted ">Password</h4>
                                                 <input type="password" class="form-control " id="exampleInputPassword1"
+<<<<<<< HEAD
                                                     placeholder="Password" required>
+=======
+                                                    name="Password" placeholder="Password">
+>>>>>>> 7d35853dd77e3b707a0d3ec575bc8bccb01a4dec
                                             </div>
                                             <div class="pt-2"></div>
                                             <button type="submit" class="btn btn-primary ">Submit</button>

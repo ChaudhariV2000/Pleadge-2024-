@@ -1,6 +1,6 @@
 
 <?php 
-if(isset($_COOKIE["user_id"]))
+if(!isset($_COOKIE["user_id"]))
 {
     header("location: vol_reg.html");
 }?>
