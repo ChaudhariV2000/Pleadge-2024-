@@ -1,7 +1,7 @@
 <?php
 require 'db_config.php';
 
-$email = $password = $Name = $Last_name = $confirm_pass ='';
+$email = $password = $Userid=$first_name = $Last_name = $confirm_pass ='';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(empty(trim($_POST['Email']))){
@@ -18,12 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = trim($_POST['Password']);
     }
     
-    if(empty(trim($_POST['Name']))){
+    if(empty(trim($_POST['user_id']))){
         die("Please enter your name");
     } 
     else{
-        $Name = trim($_POST['Name']);
+        $userid= trim($_POST['user_id']);
     }
+    if(empty(trim($_POST['first_name']))){
+      die("Please enter your Last name");
+  } 
+  else{
+      $first_name = trim($_POST['first_name']);
+  }
 
     if(empty(trim($_POST['Last_name']))){
         die("Please enter your Last name");
@@ -32,9 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Last_name = trim($_POST['Last_name']);
     }
     $conn = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
-         echo $Name;
-    
-       $sql = "INSERT into volunteer_login (Name, Last_name, Password, Email) Values('$Name','$Last_name','$password','$email')";
+       $sql_userid="SELECT id from volunteer_login WHERE id='$userid'";
+       
+       //$rows=mysqli_num_rows($resultset);
+       //echo $rows;
+      if($resultset=mysqli_query($conn,$sql_userid))
+       { $rows_no=mysqli_num_rows($resultset);
+          if($rows_no==0)
+          {
+     
+       $sql = "INSERT into volunteer_login (id,first_name, Last_name, Password, Email) Values('$userid','$first_name','$Last_name','$password','$email')";
         if (mysqli_query($conn, $sql))
          {
             echo "New record created successfully";
@@ -46,7 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
           }
-    
+        }else{
+          echo "UserID already Exists";
+        }
+      }
     
 }
 ?>

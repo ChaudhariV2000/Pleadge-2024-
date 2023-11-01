@@ -1,41 +1,46 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign Up Form</title>
-        <link rel="stylesheet" href="newpost.css">
-        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="VClogo.png">  
-    </head>
-    <body>
-      <div class="row">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <link rel="stylesheet" href="newpost.css">
+  <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="VClogo.png">
+</head>
+
+<body>
+  <div class="row">
     <div class="col-md-12">
       <form action="vol_registration.php" method="post">
         <h1></h1>
-        
+
         <fieldset>
-          
+
           <legend><span class="number">1</span> volunteer Sign up</legend>
-        
-          <label for="Event_name">User Name:</label>
-          <input type="text" id="name"  name="Name">
-        
-          <label for="Event_location">Password: </label>
-          <input type="text" id="Location" name="Password">
-       
-          <label for="Event_date">Last name:</label>
-          <input type="text" id="date" name="Last_name">
-        
-           
-         <label for="Event_description">Email:</label>
-         <input type="text" id="date" name="Email">
+
+          <label for="name">User ID:</label>
+          <input type="text" id="name" name="user_id">
+
+          <label for="first_name">First name:</label>
+          <input type="text" id="first_name" name="first_name">
+
+          <label for="last_name">Last name:</label>
+          <input type="text" id="last_name" name="Last_name">
+
+          <label for="password">Password: </label>
+          <input type="text" id="password" name="Password">
+
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="Email">
 
         </fieldset>
         <button type="submit">Sign Up</button>
-        
-       </form>
-        </div>
-      </div>
-      
-    </body>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
 </html>

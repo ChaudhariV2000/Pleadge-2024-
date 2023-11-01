@@ -74,8 +74,8 @@ CREATE TABLE `org_login` (
 --
 
 CREATE TABLE `volunteer_login` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(255) NOT NULL,
+  `Id` varchar(20) NOT NULL  PRIMARY K,
+  `first_name` varchar(255) NOT NULL,
   `Last_name` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL
