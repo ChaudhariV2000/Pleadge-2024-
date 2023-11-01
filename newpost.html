@@ -12,7 +12,7 @@
 <body>
   <div class="row">
     <div class="col-md-12">
-      <form action="Create_post.php" method="post">
+      <form action="Create_post.php" method="post" `autocomplete="off" enctype="multipart/form-data">
         <h1> Hire Volunteers </h1>
 
         <fieldset>
@@ -32,9 +32,11 @@
           <label for="Event_description">Event Description:</label>
           <textarea id="desc" name="Event_description" rows="4" cols="50"></textarea>
 
-          <label for="Event_image">Event Image:</label>
-          <input type="file" id="Image" name="Image" accept="image/*">
-
+          <!-- <label for="Event_image">Event Image:</label> -->
+          <!-- <input type="file" id="Image" name="Image" accept="image/*"> -->
+          <!-- <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value=""> <br> <br> -->
+          <label for="image">Event Image:</label>
+          <input type="file" name="image" required><br>
         </fieldset>
         <button type="submit">Sign Up</button>
 

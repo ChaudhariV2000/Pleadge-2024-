@@ -68,7 +68,8 @@
         <div class="card hovercard p-5 w-50 border-0 shadow-sm">
             <div class="cardheader">               
                 <div class="avatar">
-                    <img alt="assume image here" src="<?php echo $record['Event_image']; ?>" style="width:180px">
+                  <?php echo $record['Event_image']; ?>
+                    <img  src="<?php echo $record['Event_image']; ?>" style="width:180px">
                 </div>
             </div>
             <div class="card-body info">
@@ -99,7 +100,7 @@
                   while($result_name=mysqli_fetch_assoc($result))
                   {
               ?>
-              <li><?php echo $result_name['first_name']." ".$result_name['last_name']; ?></li>/
+              <li><?php echo $result_name['first_name']." ".$result_name['last_name']; ?></li>
               <!-- names of intrested user -->
                 <?php
                   }
