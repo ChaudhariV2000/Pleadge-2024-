@@ -1,3 +1,10 @@
+
+<?php 
+if(isset($_COOKIE["user_id"]))
+{
+    header("location: vol_reg.html");
+}?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
