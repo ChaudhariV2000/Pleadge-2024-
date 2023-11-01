@@ -1,5 +1,12 @@
 <?php
-include_once("connect.php");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "volconn";
+$conn = mysqli_connect($servername, $username, $password, $dbname) or 
+die("Connection failed: " . mysqli_connect_error());
+
+
 if (isset($_POST)){
     $ename=$_POST['Event_name'];
     $elocation=$_POST['Event_location'];
