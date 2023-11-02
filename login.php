@@ -71,15 +71,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $id = $rows['Id'];
                 setcookie("user_id", $id, time() + 8400);
-                header('location: UserProfile.php');
+                // header('location: UserProfile.php');
             } else {
-                echo "Wrong Password";
+                
+                echo "<script>alert('Incorrect Password');</script>";
+                header('location:LandingPage.html');
             }
         } else if (mysqli_num_rows($result) === 0) {
-            echo "User does not exist";
+            echo "<script>alert('User Doesnt Exits');</script>";
         }
     } else {
-        echo "Something went wrong, please try again later";
+        echo "<script>alert('Something went wrong, please try again later');</script>";
+        // header('location:LandingPage.html');
+
     }
 }
 ?>
