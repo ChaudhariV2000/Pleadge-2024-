@@ -1,9 +1,7 @@
-
-<?php 
-if(!isset($_COOKIE["user_id"]))
-{
+<?php
+if (!isset($_COOKIE["user_id"])) {
     header("location: vol_reg.html");
-}?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +32,7 @@ if(!isset($_COOKIE["user_id"]))
         <nav id="main-nav" class="main-nav navbar navbar-expand-md bg-primary ">
             <div class="container-fluid text-white">
                 <a class="navbar-brand logo scrollto" href="LandingPage.html">
-                    <span class="logo-title text-white">VolunteerConnect</span>
+                    <span class="logo-title text-white">Pledge</span>
                 </a>
             </div><!--//navabr-collapse-->
             </div>
@@ -43,8 +41,8 @@ if(!isset($_COOKIE["user_id"]))
     <h1 class="p-3">Opportunities to volunteer near you</h1>
     <center>
         <iframe type
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1885.0117196536216!2d72.83462568852367!3d19.106627629977286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c651c56f9b%3A0xc32173e36e9d804f!2sSVKM&#39;s%20Shri%20Bhagubhai%20Mafatlal%20Polytechnic!5e0!3m2!1sen!2sin!4v1698853451416!5m2!1sen!2sin"
-            width="100%" height="550vw" style="border:0;" allowfullscreen="" loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7536.8468827843!2d72.85890169030745!3d19.17669906172401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b707df0a2869%3A0x7614bda6fb9d3e97!2sMalad%2C%20Dindoshi%2C%20Malad%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1698909442582!5m2!1sen!2sin"
+            width="80%" height="550vw" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </center>
     <!--cards:-->
@@ -59,7 +57,7 @@ if(!isset($_COOKIE["user_id"]))
             <div class="card hovercard p-5 w-50 border-0 shadow-sm">
                 <div class="cardheader">
                     <div class="avatar">
-                        <img alt="assume image here" src="<?php echo $record['Event_image']; ?>" style="width:180px">
+                        <img alt="assume image here" src="greenearth.png" style="width:180px">
                     </div>
                 </div>
                 <div class="card-body info">
@@ -97,18 +95,18 @@ if(!isset($_COOKIE["user_id"]))
                     } else {
 
                         ?>
-                        <button type="submit" id = "1" name="expressInterest">I'm interested</button>
+                        <button type="submit" id="1" name="expressInterest">I'm interested</button>
                         <?php
 
                         // Handle the form submission
-                       
+                
                     }
                     ?>
                 </form>
             </div>
 
         <?php }
-         if (isset($_POST['expressInterest'])) {
+        if (isset($_POST['expressInterest'])) {
             $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
             mysqli_query($conn, $sql);
         }
