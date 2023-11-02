@@ -58,8 +58,8 @@
     $resultset = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 
     ?>
-    <div class="container">
-        <h2>Organizations</h2>
+    <div class="container"><br><br><br>
+        <h2>Organizations </h2><br><br>
         <table class="table">
             <thead>
                 <tr>
