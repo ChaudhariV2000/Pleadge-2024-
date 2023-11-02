@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,9 +30,9 @@
                     <span class="logo-title text-white">Pledge</span>
                 </a>
             </div><!--//navabr-collapse-->
-            <form action = "logout.php">
-            <button class="btn btn-secondary" type="submit">
-            Logout</button>
+            <form action="logout.php">
+                <button class="btn btn-secondary" type="submit">
+                    Logout</button>
             </form>
             </div>
         </nav><!--//main-nav-->
@@ -78,7 +77,7 @@
                     </div>
                 </div>
 
-                <form action="intrested_user.php" method="post">
+                <form action="" method="post">
 
                     <input type="hidden" name="event_id" value="<?php echo $record['id']; ?>">
                     <?php
