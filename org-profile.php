@@ -63,13 +63,30 @@
         include_once("connect.php");
         $sql = "SELECT id, Event_name, Event_location, Event_date, Event_organizer_id, Event_description, Volunteers_required, Volunteers_ready, Event_image FROM org_event_post";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
-        while( $record = mysqli_fetch_assoc($resultset) ) {
-        ?>
+        while( $record = mysqli_fetch_assoc($resultset) ) 
+        {
+         
+          ?>
         <div class="card hovercard p-5 w-50 border-0 shadow-sm">
             <div class="cardheader">               
                 <div class="avatar">
-                  <?php echo $record['Event_image']; ?>
-                    <img  src="<?php echo $record['Event_image']; ?>" style="width:180px">
+                  <?php echo $record['Event_image']; 
+                  
+                  
+                  
+$sql1 = "SELECT image_data, image_type FROM images WHERE evenr= ved"; // Adjust the WHERE clause to match the image you want to display.
+$result = $conn->query($sql1);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $imageData = $row["image_data"];
+    $imageType = $row["image_type"];
+
+    header("Content-type: $imageType");
+ 
+                  
+                  ?>
+                    <img  src="<?php    echo $imageData; ?>" style="width:180px">
                 </div>
             </div>
             <div class="card-body info">
@@ -110,7 +127,7 @@
             </div>
         </div>
         
-        <?php } 
+        <?php } }
         ?>
     
     </div>

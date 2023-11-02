@@ -13,45 +13,24 @@ if (isset($_POST)){
     $edate=$_POST['Event_date'];
     $eorg="arbitrary organization";
     $edesc=$_POST['Event_description'];
-    if($_FILES["image"]["error"] == 4){
-        echo
-        "<script> alert('Image Does Not Exist'); </script>"
-        ;
-      }
-      else{
-        $fileName = $_FILES["image"]["name"];
-        $fileSize = $_FILES["image"]["size"];
-        $tmpName = $_FILES["image"]["tmp_name"];
-    
-        $validImageExtension = ['jpg', 'jpeg', 'png'];
-        $imageExtension = explode('.', $fileName);
-        $imageExtension = strtolower(end($imageExtension));
-        if ( !in_array($imageExtension, $validImageExtension) ){
-          echo
-          "
-          <script>
-            alert('Invalid Image Extension');
-          </script>
-          ";
-        }
-        else if($fileSize > 1000000){
-          echo
-          "
-          <script>
-            alert('Image Size Is Too Large');
-          </script>
-          ";
-        }
-        else{
-          $newImageName = uniqid();
-          $newImageName .= '.' . $imageExtension;
-    
-          move_uploaded_file($tmpName, 'img/' . $newImageName);
-         
-          
-    $sql = "INSERT INTO org_event_post(Event_name,Event_location,Event_date,Event_organizer_id,Event_description,Event_image) VALUES('$ename','$elocation','$edate','$eorg',' $edesc','$newImageName');";
-    mysqli_query($conn,$sql);
-}
+    $image = $_FILES['image']['tmp_name'];
+    $imageData = file_get_contents($image);
+    $imageType = $_FILES['image']['type'];
+
+
+    $stmt = $conn->prepare("INSERT INTO images (event,image_data, image_type) VALUES ('ved', ?, ?)");
+    $stmt->bind_param("ss", $imageData, $imageType);
+    // $stmt2=$conn->prepare("INSERT INTO org_event_post (Event_name,Event_location, Event_date) VALUES (ved,bande,$edate);");
+    // $stmt2->exeute();
+    if ($stmt->execute()) {
+      echo "Image uploaded and inserted into the database successfully.";
+  } else {
+      echo "Error uploading and inserting the image.";
+  }
+  $sql = "INSERT INTO org_event_post(Event_name,Event_location,Event_date,Event_organizer_id,Event_description) VALUES('$ename','$elocation','$edate','$eorg',' $edesc');";
+  mysqli_query($conn,$sql);
+
+  $stmt->close();
 header('Location: org-profile.php');
-      }}
+      }
 ?>
