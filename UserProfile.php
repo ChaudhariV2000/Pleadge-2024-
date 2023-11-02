@@ -56,8 +56,8 @@
             <div class="card hovercard p-5 w-50 border-0 shadow-sm">
                 <div class="cardheader">
                     <div class="avatar">
-                        <img alt="assume image here" src="greenearth.png" style="width:180px">
-                    </div>
+                <?php    $data=$record['Event_name']?>
+            <img src="display.php?event_name=<?php echo $data;?>" style="width:180px; height:200px">  </div>
                 </div>
                 <div class="card-body info">
                     <div class="title">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <form action="" method="post">
+                <form action="commit.php" method="post">
 
                     <input type="hidden" name="event_id" value="<?php echo $record['id']; ?>">
                     <?php
@@ -105,10 +105,10 @@
             </div>
 
         <?php }
-        if (isset($_POST['expressInterest'])) {
-            $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
-            mysqli_query($conn, $sql);
-        }
+        // if (isset($_POST['expressInterest'])) {
+        //     $sql = "INSERT INTO interested_users (Event_id, user_ids) VALUES ('$curr','$user')";
+        //     mysqli_query($conn, $sql);
+        // }
         ?>
 
     </div>

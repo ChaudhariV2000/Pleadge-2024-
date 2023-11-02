@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $password = trim($_POST['Password']);
     }
+    $pass=$password;
     if ($field == 'organizer') {
         $sql = "SELECT Id, Password FROM org_login WHERE Name = '$UserID'";
         include 'connect.php';
@@ -37,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $rows = mysqli_fetch_array($result);
         //echo mysqli_num_rows($result);
         if (mysqli_num_rows($result) == 1) {
-            if ($password == $rows['Password']) {
+            
+            if ($pass === $rows['Password']) {
                 echo "Login Successful!";
                 $id = $rows['Id'];
                 setcookie("org_id", $id, time() + 8400);
@@ -46,9 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // $_SESSION['id'] = $rows['Id'];
 
                 header('location: org-profile.php');
-            } else {
-                echo "Wrong Password";
-            }
+            } 
+            
         } else if (mysqli_num_rows($result) === 0) {
             echo "User does not exist";
         }
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = mysqli_query($conn, $sql);
         $rows = mysqli_fetch_array($result);
         if (mysqli_num_rows($result) === 1) {
-            if ($password === $rows['Password']) {
+            if ($pass === $rows['Password']) {
                 echo "<script>alert('Login Successful!');</script>";
 
                 $id = $rows['Id'];
