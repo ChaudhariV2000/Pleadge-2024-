@@ -76,7 +76,8 @@
       <div class="card hovercard p-5 w-50 border-0 shadow-sm">
         <div class="cardheader">
           <div class="avatar">
-            <img alt="assume image here" src="greenearth.png" style="width:180px">
+            <?php echo $record['Event_image']; ?>
+            <img src="<?php echo $record['Event_image']; ?>" style="width:180px">
           </div>
         </div>
         <div class="card-body info">
@@ -102,7 +103,7 @@
             <?php
             include_once("connect.php");
             $curr = $record['id'];
-            $sql = "SELECT user_ids FROM interested_users;"; //where Event_id='Donation Drive for v';";
+            $sql = "SELECT user_ids FROM interested_users WHERE Event_id='$curr';"; //where Event_id='Donation Drive for v';";
             $resultset2 = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 
             while ($record2 = mysqli_fetch_assoc($resultset2)) {
@@ -114,7 +115,7 @@
                   ?>
                   <li>
                     <?php echo $result_name['first_name'] . " " . $result_name['last_name']; ?>
-                  </li>/
+                  </li>
                   <!-- names of intrested user -->
                   <?php
                 }
@@ -123,8 +124,52 @@
           </ul>
         </div>
       </div>
+      <div class="card-body info">
+        <div class="title">
+          <h3 class="text-secondary">
+            <?php echo $record['Event_name']; ?>
+          </h3>
+        </div>
+        <div class="desc"> <a target="_blank" href="<?php echo $record['Event_location']; ?>"></a></div>
+        <div class="desc">
+          <?php echo $record['Event_description']; ?>
+        </div>
+        <div class="desc">Date:
+          <?php echo $record['Event_date']; ?>
+        </div>
+        <div class="desc">Organized by:
+          <?php echo $record['Event_organizer_id']; ?>
+        </div>
+      </div>
+      <div>
+        Intrested users:
+        <ul>
+          <?php
+          include_once("connect.php");
+          $curr = $record['id'];
+          $sql = "SELECT user_ids FROM interested_users;"; //where Event_id='Donation Drive for v';";
+          $resultset2 = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
 
-    <?php }
+          while ($record2 = mysqli_fetch_assoc($resultset2)) {
+            $user_id = $record2['user_ids'];
+            $sql_name = "SELECT first_name ,last_name from volunteer_login WHERE id='$user_id'";
+            if ($result = mysqli_query($conn, $sql_name)) {
+
+              while ($result_name = mysqli_fetch_assoc($result)) {
+                ?>
+                <li>
+                  <?php echo $result_name['first_name'] . " " . $result_name['last_name']; ?>
+                </li>/
+                <!-- names of intrested user -->
+                <?php
+              }
+            }
+          } ?>
+        </ul>
+      </div>
+    </div>
+
+  <?php }
     ?>
 
   </div>

@@ -78,31 +78,31 @@ if (!isset($_COOKIE["user_id"])) {
                     </div>
                 </div>
 
-                <form class="" method="post">
+                <form action="intrested_user.php" method="post">
+
+                    <input type="hidden" name="event_id" value="<?php echo $record['id']; ?>">
                     <?php
                     $curr = $record['id'];
 
                     $user = $_COOKIE['user_id'];
-                    echo $user;
-                    $sql = "SELECT * FROM interested_users WHERE Event_id =$curr AND user_ids='$user';";
+                    // Check if the user has already expressed interest in this event
+                    $sql = "SELECT * FROM interested_users WHERE Event_id = $curr AND user_ids = '$user'";
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) > 0) {
-
                         ?>
+                        <input type="hidden" name="curr" value="<?php echo $record['id']; ?>">
+                        <!-- <input type="hidden" name="" value="<?php echo $record['id']; ?>"> -->
                         <button type="button" disabled>I'm interested</button>
                         <?php
                     } else {
-
                         ?>
-                        <button type="submit" id="1" name="expressInterest">I'm interested</button>
+                        <button type="submit" name="expressInterest">I'm interested</button>
                         <?php
-
-                        // Handle the form submission
-                
                     }
                     ?>
                 </form>
+
             </div>
 
         <?php }
@@ -113,4 +113,4 @@ if (!isset($_COOKIE["user_id"])) {
         ?>
 
     </div>
-</body>
+    < </body>
