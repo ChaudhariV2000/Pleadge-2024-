@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rows = mysqli_fetch_array($result);
     if (mysqli_num_rows($result) === 1){
         if ($password === $rows['Password']){
-            echo "<script>alert('Login Successful!')</script>";
+            echo "<script>alert('Login Successful!');</script>";
             
             $id=$rows['Id'];    
             setcookie("user_id",$id,time()+8400);

@@ -42,11 +42,12 @@
             <div class="container-fluid text-white">
             <a class="navbar-brand logo scrollto" href="LandingPage.html">
                 <span class="logo-title text-white">VolunteerConnect</span>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse"  aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-            </button><!--//nav-toggle-->
+            </a>  
             </div>
+            <form action = "logout.php">
+            <button class="btn btn-secondary" type="submit">
+            Logout</button>
+            </form>
         </nav><!--//main-nav-->
     </header>
   

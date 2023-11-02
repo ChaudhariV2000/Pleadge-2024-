@@ -1,9 +1,4 @@
 
-<?php 
-if(!isset($_COOKIE["user_id"]))
-{
-    header("location: vol_reg.html");
-}?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +32,10 @@ if(!isset($_COOKIE["user_id"]))
                     <span class="logo-title text-white">VolunteerConnect</span>
                 </a>
             </div><!--//navabr-collapse-->
+            <form action = "logout.php">
+            <button class="btn btn-secondary" type="submit">
+            Logout</button>
+            </form>
             </div>
         </nav><!--//main-nav-->
     </header>
