@@ -57,7 +57,7 @@
                 <div class="cardheader">
                     <div class="avatar">
                 <?php    $data=$record['Event_name']?>
-            <img src="display.php?event_name=<?php echo $data;?>" style="width:180px; height:200px">  </div>
+            <img src="display.php?event_name=<?php echo $data;?>" style="width:700px; height:400px; align:center">  </div>
                 </div>
                 <div class="card-body info">
                     <div class="title">
