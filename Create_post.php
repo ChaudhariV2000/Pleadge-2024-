@@ -18,7 +18,7 @@ if (isset($_POST)){
     $imageType = $_FILES['image']['type'];
 
 
-    $stmt = $conn->prepare("INSERT INTO images (event,image_data, image_type) VALUES ('ved', ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO images (event,image_data, image_type) VALUES ('$ename', ?, ?)");
     $stmt->bind_param("ss", $imageData, $imageType);
     // $stmt2=$conn->prepare("INSERT INTO org_event_post (Event_name,Event_location, Event_date) VALUES (ved,bande,$edate);");
     // $stmt2->exeute();
