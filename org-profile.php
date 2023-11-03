@@ -80,7 +80,7 @@
           <div class="avatar">
             <?php
             $data = $record['Event_name'] ?>
-            <img src="display.php?event_name=<?php echo $data; ?>" style="width:180px; height:200px">
+            <img src="display.php?event_name=<?php echo $data; ?>" style="width:700px; height:300px">
           </div>
         </div>
         <div class="card-body info">
