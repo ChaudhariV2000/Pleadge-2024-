@@ -1,7 +1,7 @@
 <?php
 require 'db_config.php';
 
-$email = $password = $Userid = $first_name = $Last_name = $confirm_pass = '';
+$email = $password = $Userid = $first_name = $Last_name = $confirm_pass = '1234';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (empty(trim($_POST['user_id']))) {

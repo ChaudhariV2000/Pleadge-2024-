@@ -69,6 +69,7 @@
     <h1>Your earlier events</h1>
     <?php
     include_once("connect.php");
+    $org = $_COOKIE['org_id'];
     $sql = "SELECT id, Event_name, Event_location, Event_date, Event_organizer_id, Event_description, Volunteers_required, Volunteers_ready, Event_image FROM org_event_post";
     $resultset = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
     while ($record = mysqli_fetch_assoc($resultset)) {
@@ -80,7 +81,7 @@
           <div class="avatar">
             <?php
             $data = $record['Event_name'] ?>
-            <img src="display.php?event_name=<?php echo $data; ?>" style="width:700px; height:300px">
+            <img src="display.php?event_name=<?php echo $data; ?>" style="width:700px; height:400px">
           </div>
         </div>
         <div class="card-body info">
@@ -98,6 +99,10 @@
           </div>
           <div class="desc">Organized by:
             <?php echo $record['Event_organizer_id']; ?>
+          </div>
+          <div class="d-flex justify-content-around">
+            <a class="btn  btn-warning d-flex" href="EventUp.php?id=<?php echo $record['id']; ?>">Edit</a>
+            <a href="EventDel.php?id=<?php echo $record['id']; ?>" class="btn btn-danger d-flex">Delete</a>
           </div>
         </div>
         <div>
