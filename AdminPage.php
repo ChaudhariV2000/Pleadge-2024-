@@ -76,9 +76,12 @@
                 <?php
                 if ($resultset->num_rows > 0) {
                     while ($row = $resultset->fetch_assoc()) { ?>
+
                         <tr>
                             <td>
-                                <?php echo $row['Id']; ?>
+                                <?php echo $row['Id'];
+
+                                ?>
                             </td>
                             <td>
                                 <?php echo $row['Name']; ?>
@@ -100,11 +103,75 @@
                             </td>
 
                             <td>
-
-                                <a class="btn btn-danger">Delete</a>
+                                <a class="btn btn-danger" href="AdminOrgDel.php?id=<?php echo $row['Id']; ?>">Delete</a>
                             </td>
 
                         </tr>
+
+
+                    <?php }
+
+                }
+
+                ?>
+
+            </tbody>
+
+        </table>
+        <?php
+        include_once("connect.php");
+        $sql = "SELECT `Id`,`Event_name`,`Event_location`,`Event_date`,`Event_organizer_id`,`Event_description` FROM `org_event_post`";
+        $resultset = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+
+        ?>
+        <h2>Events </h2><br><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Organizer</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                if ($resultset->num_rows > 0) {
+                    while ($row = $resultset->fetch_assoc()) { ?>
+                        <form action="Adminopt.php">
+                            <tr>
+                                <td>
+                                    <?php echo $row['Id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['Event_name']; ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $row['Event_location']; ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $row['Event_date']; ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $row['Event_organizer_id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['Event_description']; ?>
+                                </td>
+
+                                <td>
+                                    <a class="btn  btn-warning " href="AdminEventUp.php?id=<?php echo $row['Id']; ?>">Edit</a>
+                                    <a href="AdminEventDel.php?id=<?php echo $row['Id']; ?>" class="btn btn-danger">Delete</a>
+                                </td>
+
+                            </tr>
+                        </form>
 
                     <?php }
 
